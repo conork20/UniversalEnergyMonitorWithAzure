@@ -43,3 +43,6 @@ Create new resource group and create core resources of the service.
 ```
 .\New-ServiceResources.ps1 -ResourceGroupName <group>
 ```
+
+## Configuring IoT Central to Receive Telemetry from the Energy Monitor
+1. ...
