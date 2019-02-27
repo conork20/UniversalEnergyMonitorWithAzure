@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AzureDeployment/obj/Debug
+/AzureDeployment/bin/Debug/staging/EnergyMonitoringAzureResourceGroup
