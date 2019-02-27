@@ -46,3 +46,9 @@ Create new resource group and create core resources of the service.
 
 ## Configuring IoT Central to Receive Telemetry from the Energy Monitor
 1. ...
+
+## Configuring the Simulated Device
+1. If not already done, create an Azure Function App. See steps [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function)
+2. Update [Application Settings in Portal](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings) for `voltage` to any integer value, `amperage` to any double value, and `connectionString` to your device's Iot Hub connection string. You can determine your connection string using [this tool](https://github.com/Azure/dps-keygen).
+3. Publish [SyntheticSensorMessenger](./SyntheticSensorMessenger) to your Azure Function App. See [Steps for Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/deploy-app) or [Steps for Visual Studio](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio/)
+
