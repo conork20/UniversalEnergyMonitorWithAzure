@@ -1,0 +1,157 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deploymentLabel": {
+      "type": "string",
+      "defaultValue": "[take(uniqueString(resourceGroup().id),5)]"
+    }
+    },
+  "variables": {
+    "storageName": "[concat(parameters('deploymentLabel'),'emstg')]",
+    "iotCentraleName": "[concat(parameters('deploymentLabel'),'iotcentral')]",
+    "serverfarms_name": "[concat(parameters('deploymentLabel'),'serverplan')]",
+    "sites_name": "[concat(parameters('deploymentLabel'),'site')]",
+    "serverfarms_name": "[concat(parameters('deploymentLabel'),'farm')]",
+    "config_web_name": "[concat(parameters('deploymentLabel'),'config')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "Storage",
+      "name": "[variables('storageName')]",
+      "apiVersion": "2018-07-01",
+      "location": "westus",
+      "tags": {},
+      "scale": null,
+      "properties": {
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "virtualNetworkRules": [],
+          "ipRules": [],
+          "defaultAction": "Allow"
+        },
+        "supportsHttpsTrafficOnly": false,
+        "encryption": {
+          "services": {
+            "file": {
+              "enabled": true
+            },
+            "blob": {
+              "enabled": true
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        }
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.IoTCentral/IoTApps",
+      "sku": {
+        "name": "S1"
+      },
+      "name": "[variables('iotCentraleName')]",
+      "apiVersion": "2018-09-01",
+      "location": "westus",
+      "tags": {},
+      "scale": null,
+      "properties": {
+        "displayName": "[variables('iotCentraleName')]",
+        "subdomain": "[variables('iotCentraleName')]"
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "sku": {
+        "name": "Y1",
+        "tier": "Dynamic",
+        "size": "Y1",
+        "family": "Y",
+        "capacity": 0
+      },
+      "kind": "functionapp",
+      "name": "[variables('serverfarms_name')]",
+      "apiVersion": "2016-09-01",
+      "location": "West US",
+      "scale": null,
+      "properties": {
+        "name": "[variables('serverfarms_name')]",
+        "workerTierName": null,
+        "adminSiteName": null,
+        "hostingEnvironmentProfile": null,
+        "perSiteScaling": false,
+        "reserved": false,
+        "targetWorkerCount": 0,
+        "targetWorkerSizeId": 0
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "kind": "functionapp",
+      "name": "[variables('sites_name')]",
+      "apiVersion": "2016-08-01",
+      "location": "West US",
+      "scale": null,
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(variables('serverfarms_name'),'.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "virtualIP": null,
+            "thumbprint": null,
+            "toUpdate": null,
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(variables('serverfarms_name'),'.scm.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "virtualIP": null,
+            "thumbprint": null,
+            "toUpdate": null,
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('serverfarms_name'))]",
+        "reserved": false,
+        "siteConfig": null,
+        "scmSiteAlsoStopped": false,
+        "hostingEnvironmentProfile": null,
+        "clientAffinityEnabled": false,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 1536,
+        "dailyMemoryTimeQuota": 0,
+        "cloningInfo": null,
+        "httpsOnly": false
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('serverfarms_name'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "name": "[concat(variables('sites_name'), '/', concat(variables('sites_name'),'.azurewebsites.net'))]",
+      "apiVersion": "2016-08-01",
+      "location": "West US",
+      "scale": null,
+      "properties": {
+        "siteName": "pttp-sim",
+        "domainId": null,
+        "hostNameType": "Verified"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', variables('sites_name'))]"
+      ]
+    }
+  ],
+    "outputs": {}
+  }
+
