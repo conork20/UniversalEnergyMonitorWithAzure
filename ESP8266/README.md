@@ -96,7 +96,7 @@ Assuming the port/dev for the board is `/dev/cu.SLAB_USBtoUART`
 nodemcu-tool -p /dev/cu.SLAB_USBtoUART -b 9600 terminal
 ```
 
-[adddevice]: ./images/Add\ Device.png "Add a real device."
-[create]: ./images/Create.png "Click create."
-[connect]: ./images/Connect.png "Click connect."
-[dialogbox]: ./images/Credentials.png "Connection dialog box."
+[adddevice]: ./ESP8266/images/Add\ Device.png "Add a real device."
+[create]: ./ESP8266/images/Create.png "Click create."
+[connect]: ./ESP8266/images/Connect.png "Click connect."
+[dialogbox]: ./ESP8266/images/Credentials.png "Connection dialog box."
