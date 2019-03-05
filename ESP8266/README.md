@@ -7,7 +7,7 @@ Most [ESP8266 dev boards](https://arduino-esp8266.readthedocs.io/en/latest/board
 
 This project uses the ESP8266's single analog input, the board you use must make this available.
 Boards we tested on did not use a voltage divider on the ADC input, but yours might.
-Consider the max input votage of the board's analog input when choosing a CT clip.
+Consider the max input voltage of the board's analog input when choosing a CT clip.
 
 We've tested using `NodeMCU` and `Adafruit Feather HUZZAH` boards.
 
