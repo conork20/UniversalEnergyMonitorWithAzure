@@ -1,7 +1,7 @@
 # Universal Energy Monitoring With Azure
 Monitoring energy usage of any device via Azure using a simple Arduino based Energy Monitor
 
-![Image](DocumentationContent/ArduinoEnergySensorImage.jpg)
+![Image](DocumentationContent/HardwareDeviceWithGraph.jpg)
 
 ## Pre-requisite
 Windows PowerShell (>= 5.1, `get-host|Select-Object version` to get the version)
