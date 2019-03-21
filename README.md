@@ -1,7 +1,7 @@
 # Universal Energy Monitoring With Azure
 Monitoring energy usage of any device via Azure using a simple Arduino based Energy Monitor
 
-![Image](https://github.com/conork20/UniversalEnergyMonitorWithAzure/tree/master/DocumentationContent/ArduinoEnergySensorImage.jpg)
+![Image](DocumentationContent/ArduinoEnergySensorImage.jpg)
 
 ## Pre-requisite
 Windows PowerShell (>= 5.1, `get-host|Select-Object version` to get the version)
@@ -49,9 +49,9 @@ Create new resource group and create core resources of the service.
 ## Configuring IoT Central to Receive Telemetry from the Energy Monitor
 1. First, create a Device Template in your IoT Central Instance to match the telemetry the Arduino device will be sending in. Follow the steps outlined [Set up a device template](https://docs.microsoft.com/en-us/azure/iot-central/howto-set-up-template). Configure the device telemetry points of power and kwh as time series telemetry datapoints as such: 
 
-![Image](https://github.com/conork20/UniversalEnergyMonitorWithAzure/tree/master/DocumentationContent/DeviceTemplateCreation1.JPG)
+![Image](DocumentationContent/DeviceTemplateCreation1.JPG)
 
-![Image](https://github.com/conork20/UniversalEnergyMonitorWithAzure/tree/master/DocumentationContent/DeviceTemplateCreation2.JPG)
+![Image](DocumentationContent/DeviceTemplateCreation2.JPG)
 
 2. Now add under Device Explorer, [add a device](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-add-device) of the Energy Monitor Device Template which to couple the physical energy monitor with to send in and monitor it's energy reading data:
 ![Image](https://github.com/conork20/UniversalEnergyMonitorWithAzure/tree/master/DocumentationContent/DeviceCreation1.JPG)
