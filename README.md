@@ -65,4 +65,4 @@ Create new resource group and create core resources of the service.
 3. Publish [SyntheticSensorMessenger](./SyntheticSensorMessenger) to your Azure Function App. See [Steps for Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/deploy-app) or [Steps for Visual Studio](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio/)
 
 ## Configuring the Real Arduino Energy Sensor to send in telemetry Simulated Device
-[Instructions](./ESP8266/README.md)
+Run through the steps in [Setting up the Arduino sensor](./ESP8266/README.md)
