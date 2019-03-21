@@ -15,7 +15,7 @@ We've tested using `NodeMCU` and `Adafruit Feather HUZZAH` boards.
 
 A [current transformer](https://en.wikipedia.org/wiki/Current_transformer) is used to measure current. (AC only)
 
-A current transformer with a built-in resistor was used with this project because it can be sampled directly by the E8266. Ours outputs 1V/30A.
+A current transformer with a built-in resistor was used with this project because it can be sampled directly by the ESP8266. Ours outputs 1V/30A.
 
 Some current transformers do not have internal circuitry and output mA/A. If your CT outputs mA/A then you will need to add a burden resistor. 
 Using this second type of sensor without a burden resistor will fry your board. 
@@ -47,10 +47,10 @@ board_manager:
 #### Code Setup
 Get connection information from the device explorer page in your IoT Central application. 
 
-1. Add device. ![alt text][adddevice]
-2. Create. ![alt text][create]
-3. Connect. ![alt text][connect]
-4. Copy `Scope ID`, `Device ID`, and `Primary Key` from the device connection dialog box. ![alt text][dialogbox]
+1. Add device. TODO Screenshot
+2. Create. TODO Screenshot
+3. Connect. TODO Screenshot
+4. Copy `Scope ID`, `Device ID`, and `Primary Key` from the device connection dialog box. TODO Screenshot
 
 Fill in the necessary parts of `UniversalEnergyMonitor.ino`.
 
@@ -68,21 +68,21 @@ const char* deviceKey = <IOT CENTRAL DEVICE KEY>;
 
 Setup the environment: (under the project folder)
 ```
-arduino-cli-0.3.3 core update-index
-arduino-cli-0.3.3 core install esp8266:esp8266
-arduino-cli-0.3.3 board attach esp8266:esp8266:nodemcu
+arduino-cli core update-index
+arduino-cli core install esp8266:esp8266
+arduino-cli board attach esp8266:esp8266:nodemcu
 ```
 (*Note:* In the last line, `nodemcu` is your specific ESP8266 board type.)
 
 
 Compile!
 ```
-arduino-cli-0.3.3 compile
+arduino-cli compile
 ```
 
 Upload
 ```
-arduino-cli-0.3.3 upload -p <PORT / DEV?? i.e. => /dev/cu.SLAB_USBtoUART >
+arduino-cli upload -p <PORT / DEV?? i.e. => /dev/cu.SLAB_USBtoUART >
 ```
 
 #### Monitoring?
