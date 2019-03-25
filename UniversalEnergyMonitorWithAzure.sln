@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "EnergyMonitoringAzureResourceGroup", "AzureDeployment\EnergyMonitoringAzureResourceGroup.deployproj", "{45EB3D42-5915-4612-9396-FA536454E134}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyntheticSensorMessenger", "SyntheticSensorMessenger\SyntheticSensorMessenger.csproj", "{C2CFD7DF-A91F-4DB2-90E9-020C57E5D28E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{45EB3D42-5915-4612-9396-FA536454E134}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45EB3D42-5915-4612-9396-FA536454E134}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45EB3D42-5915-4612-9396-FA536454E134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2CFD7DF-A91F-4DB2-90E9-020C57E5D28E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2CFD7DF-A91F-4DB2-90E9-020C57E5D28E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2CFD7DF-A91F-4DB2-90E9-020C57E5D28E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2CFD7DF-A91F-4DB2-90E9-020C57E5D28E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
